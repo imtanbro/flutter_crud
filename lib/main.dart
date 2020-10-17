@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
           Container(
             color: Colors.black,
             alignment: Alignment.center,
+            decoration: BoxDecoration(
+              
+            ),
           )
         ],
       ),),   
