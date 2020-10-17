@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       bottomNavigationBar: BottomNavigationBar(),
-      drawer: Drawer(),      
+      drawer: Drawer(),   
+      floatingActionButton: FloatingActionButton(),   
     );
   }
 }
