@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
       appBar: AppBar(),
       bottomNavigationBar: BottomNavigationBar(),
       drawer: Drawer(child: ListView(
-        children: [],
+        children: [
+          Container()
+        ],
       ),),   
       floatingActionButton: FloatingActionButton(),   
 
