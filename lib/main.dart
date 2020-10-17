@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         children: [
           Container(
             color: Colors.black,
+            alignment: Alignment.center,
           )
         ],
       ),),   
