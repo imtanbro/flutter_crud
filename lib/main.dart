@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp(
-    Material(
-      
-    )
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      
+      bottomNavigationBar: BottomNavigationBar(),      
     );
   }
 }
