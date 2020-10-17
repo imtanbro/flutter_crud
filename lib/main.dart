@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(),
       drawer: Drawer(child: ListView(
         children: [
-          Container()
+          Container(
+            color: Colors.black,
+          )
         ],
       ),),   
       floatingActionButton: FloatingActionButton(),   
