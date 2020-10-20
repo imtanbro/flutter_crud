@@ -1,6 +1,6 @@
-import 'package:classroom/helper/constant.dart';
-import 'package:classroom/views/home_page/home.dart';
-import 'package:classroom/views/sign_in/signin.dart';
+import 'package:flutter_crud/helper/constant.dart';
+import 'package:flutter_crud/views/home_page/home.dart';
+import 'package:flutter_crud/views/sign_in/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
