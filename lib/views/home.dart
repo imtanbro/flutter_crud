@@ -1,6 +1,6 @@
-import 'package:classroom/services/crud.dart';
-import 'package:classroom/views/Quiz.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/services/crud.dart';
+import 'package:flutter_crud/views/Quiz.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {

@@ -1,5 +1,5 @@
-import 'package:classroom/services/database.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/services/database.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class AddQuestion extends StatefulWidget {

@@ -1,6 +1,6 @@
-import 'package:classroom/views/assignments/assignments.dart';
-import 'package:classroom/views/quiz/Quiz.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/views/assignments/assignments.dart';
+import 'package:flutter_crud/views/quiz/Quiz.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {

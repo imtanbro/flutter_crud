@@ -1,7 +1,7 @@
-import 'package:classroom/services/database.dart';
-import 'package:classroom/views/playquiz.dart';
-import 'package:classroom/views/teacher_main_screen/create_quiz.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/services/database.dart';
+import 'package:flutter_crud/views/playquiz.dart';
+import 'package:flutter_crud/views/teacher_main_screen/create_quiz.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

@@ -1,9 +1,9 @@
-import 'package:classroom/helper/constant.dart';
-import 'package:classroom/models/questionModel.dart';
-import 'package:classroom/services/database.dart';
-import 'package:classroom/views/quiz/results.dart';
-import 'package:classroom/widgets/quizplaywidget.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/helper/constant.dart';
+import 'package:flutter_crud/models/questionModel.dart';
+import 'package:flutter_crud/services/database.dart';
+import 'package:flutter_crud/views/quiz/results.dart';
+import 'package:flutter_crud/widgets/quizplaywidget.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

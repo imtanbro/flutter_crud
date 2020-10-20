@@ -1,6 +1,6 @@
-import 'package:classroom/helper/constant.dart';
-import 'package:classroom/services/database.dart';
-import 'package:classroom/views/profile/profilescreen.dart';
+import 'package:flutter_crud/helper/constant.dart';
+import 'package:flutter_crud/services/database.dart';
+import 'package:flutter_crud/views/profile/profilescreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

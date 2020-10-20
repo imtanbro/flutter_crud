@@ -1,9 +1,9 @@
-import 'package:classroom/helper/constant.dart';
-import 'package:classroom/services/auth.dart';
-import 'package:classroom/views/main_screen.dart';
-import 'package:classroom/views/signup/signup.dart';
-import 'package:classroom/views/teacher_main_screen/teacher_main_screen.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/helper/constant.dart';
+import 'package:flutter_crud/services/auth.dart';
+import 'package:flutter_crud/views/main_screen.dart';
+import 'package:flutter_crud/views/signup/signup.dart';
+import 'package:flutter_crud/views/teacher_main_screen/teacher_main_screen.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

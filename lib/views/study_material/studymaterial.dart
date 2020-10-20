@@ -1,5 +1,5 @@
-import 'package:classroom/helper/constant.dart';
-import 'package:classroom/views/assignments/assignments.dart';
+import 'package:flutter_crud/helper/constant.dart';
+import 'package:flutter_crud/views/assignments/assignments.dart';
 import 'package:flutter/material.dart';
 
 class StudyMaterial extends StatelessWidget {

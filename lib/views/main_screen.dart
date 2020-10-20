@@ -1,9 +1,9 @@
-import 'package:classroom/helper/constant.dart';
-import 'package:classroom/views/home_page/home.dart';
-import 'package:classroom/views/notifications/notifications.dart';
-import 'package:classroom/views/profile/profilescreen.dart';
-import 'package:classroom/views/study_material/studymaterial.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/helper/constant.dart';
+import 'package:flutter_crud/views/home_page/home.dart';
+import 'package:flutter_crud/views/notifications/notifications.dart';
+import 'package:flutter_crud/views/profile/profilescreen.dart';
+import 'package:flutter_crud/views/study_material/studymaterial.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {

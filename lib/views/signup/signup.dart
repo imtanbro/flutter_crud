@@ -1,8 +1,8 @@
-import 'package:classroom/helper/constant.dart';
-import 'package:classroom/services/auth.dart';
-import 'package:classroom/views/main_screen.dart';
-import 'package:classroom/views/sign_in/signin.dart';
-import 'package:classroom/widgets/widgets.dart';
+import 'package:flutter_crud/helper/constant.dart';
+import 'package:flutter_crud/services/auth.dart';
+import 'package:flutter_crud/views/main_screen.dart';
+import 'package:flutter_crud/views/sign_in/signin.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
