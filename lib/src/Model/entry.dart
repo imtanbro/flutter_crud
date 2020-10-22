@@ -11,7 +11,6 @@ class Entry {
       uid: json['entryId'],
     );
   }
-
   Map<String, dynamic> toMap() {
     return {
       "date": date,
