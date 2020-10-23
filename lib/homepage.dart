@@ -34,7 +34,7 @@ class _CustombutoonState extends State<Custombutoon> {
     return Column(
       children: [
         Container(
-          alignment: ,
+          alignment: Alignment.bottomCenter,
         )
       ],
       
