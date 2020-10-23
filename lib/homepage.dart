@@ -15,7 +15,7 @@ class _SignOutState extends State<SignOut> {
           child: Container(
         child: GestureDetector(
             onTap: null,
-             child: customButton(context, "SignOut")),
+             child: customButton(context, "SignOut Page")),
       )),
     );
   }
