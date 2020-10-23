@@ -33,7 +33,9 @@ class _CustombutoonState extends State<Custombutoon> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container()
+        Container(
+          alignment: ,
+        )
       ],
       
     );
