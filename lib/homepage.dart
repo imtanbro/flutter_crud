@@ -16,7 +16,23 @@ class _SignOutState extends State<SignOut> {
         child: GestureDetector(
             onTap: null,
              child: customButton(context, "SignOut")),
+             
       )),
+    );
+  }
+}
+
+
+class Custombutoon extends StatefulWidget {
+  @override
+  _CustombutoonState createState() => _CustombutoonState();
+}
+
+class _CustombutoonState extends State<Custombutoon> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
     );
   }
 }
