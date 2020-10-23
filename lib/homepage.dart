@@ -37,7 +37,7 @@ class _CustombutoonState extends State<Custombutoon> {
           alignment: Alignment.bottomCenter,
           color: Colors.amber,
           height: 10,
-          width: ,
+          width: 100,
         )
       ],
       
