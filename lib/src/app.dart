@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/Services/auth.dart';
 
-class HomePage extends StatefulWidget {
+class App extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _AppState createState() => _AppState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return MaterialApp(
+      title: "Authentication",
+      home: Authentication(),      
     );
   }
 }
