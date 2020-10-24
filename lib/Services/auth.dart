@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 
 class Authentication extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _AuthenticationState extends State<Authentication> {
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(color: Colors.blueAccent),
+        decoration: BoxDecoration(color: Colors.black),
         child: Column(
           children: [
             Spacer(),
@@ -33,9 +34,13 @@ class _AuthenticationState extends State<Authentication> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
             TextFormField(
               controller: _password,
               obscureText: true,
+              
               decoration: InputDecoration(
                 labelText: "Password",
                 labelStyle: TextStyle(
@@ -43,6 +48,10 @@ class _AuthenticationState extends State<Authentication> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 60,
+            ),
+            customButton(context, "Sign In" , 60),
             Spacer(),
           ],
         ),

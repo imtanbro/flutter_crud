@@ -26,9 +26,9 @@ class NavbarCustom extends StatelessWidget with PreferredSizeWidget {
   }
 }
 
-Widget customButton(BuildContext context, String title) {
+Widget customButton(BuildContext context, String title, int size) {
   return Container(
-    width: MediaQuery.of(context).size.width - 30,
+    width: MediaQuery.of(context).size.width - size,
     height: 50,
     decoration: BoxDecoration(
       gradient: LinearGradient(
