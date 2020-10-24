@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/Services/firestore_services.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class Authentication extends StatefulWidget {
@@ -79,7 +80,7 @@ class _AuthenticationState extends State<Authentication> {
             ),
             GestureDetector(
                 onTap: () async {
-                  
+                  bool registernavigate = await register(_email, _password)
                 }, child: customButton(context, "Register", 100)),
             Spacer(),
           ],
