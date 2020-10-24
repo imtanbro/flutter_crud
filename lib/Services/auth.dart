@@ -41,7 +41,7 @@ class _AuthenticationState extends State<Authentication> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Colors.blueGrey, width: 2.0),
+                      const BorderSide(color: Colors.teal, width: 2.0),
                   borderRadius: BorderRadius.circular(25.0),
                 ),
               ),
@@ -52,11 +52,18 @@ class _AuthenticationState extends State<Authentication> {
             TextFormField(
               controller: _password,
               obscureText: true,
+              cursorColor: Colors.blue,
+              style: TextStyle(
+                color: Color.fromRGBO(244, 180, 0, 1),
+                decorationColor: Color.fromRGBO(66, 133, 244, 1),
+                fontSize: 19,
+                // backgroundColor: Colors.blue,
+              ),
               decoration: InputDecoration(
                 labelText: "Password",
                 enabledBorder: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Colors.blueGrey, width: 2.0),
+                      const BorderSide(color: Colors.teal, width: 2.0),
                   borderRadius: BorderRadius.circular(25.0),
                 ),
                 labelStyle: TextStyle(
