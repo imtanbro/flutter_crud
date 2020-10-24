@@ -8,14 +8,15 @@ class Authentication extends StatefulWidget {
 class _AuthenticationState extends State<Authentication> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           color: Colors.blueAccent
         ),
+        child: Center(child: Text("Hello World")),
       ),
       
     );
