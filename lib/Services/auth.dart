@@ -74,14 +74,22 @@ class _AuthenticationState extends State<Authentication> {
               height: 50,
             ),
             GestureDetector(
-                onTap: () {}, child: customButton(context, "Sign In", 100)),
+                onTap: () async {
+                  bool registernavigate =
+                      await signIn(_email.text, _password.text);
+                  if (registernavigate) {}
+                },
+                child: customButton(context, "Sign In", 100)),
             SizedBox(
               height: 20,
             ),
             GestureDetector(
                 onTap: () async {
-                  bool registernavigate = await register(_email, _password)
-                }, child: customButton(context, "Register", 100)),
+                  bool registernavigate =
+                      await register(_email.text, _password.text);
+                  if (registernavigate) {}
+                },
+                child: customButton(context, "Register", 100)),
             Spacer(),
           ],
         ),
