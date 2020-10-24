@@ -19,10 +19,20 @@ class FireStoreService {
 }
 
 Future<void> signIn(String email, String password) async {}
-Future<void> register(String email, String password) async {
-  try {} on FirebaseAuthException catch (e) {
+Future<bool> register(String email, String password) async {
+  try {
+    await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email, password: password);
+    return true;
+  } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
       print("The password is too weak");
+    } else if (e.code == "email-already-in-use") {
+      print("The account already exists for that email");
     }
-  } catch (e) {}
+    return false;
+  } catch (e) {
+    print(e.toString());
+    return false;
+  }
 }

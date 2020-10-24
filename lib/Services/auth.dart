@@ -78,7 +78,9 @@ class _AuthenticationState extends State<Authentication> {
               height: 20,
             ),
             GestureDetector(
-                onTap: () {}, child: customButton(context, "Register", 100)),
+                onTap: () async {
+                  
+                }, child: customButton(context, "Register", 100)),
             Spacer(),
           ],
         ),
