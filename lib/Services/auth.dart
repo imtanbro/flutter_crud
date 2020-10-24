@@ -17,34 +17,34 @@ class _AuthenticationState extends State<Authentication> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(color: Colors.blueAccent),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 200),
-          child: Column(children: [
-          TextFormField(
-            controller: _email,
-            decoration: InputDecoration(
-              hintText: "Something@email.com",
-              labelText: "Email",
-              labelStyle: TextStyle(
-                color: Colors.white,
-              ),
-              hintStyle: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-          TextFormField(
-            controller: _password,
-            obscureText: true,
-            decoration: InputDecoration(
-              labelText: "Password",
-              labelStyle: TextStyle(
-                color: Colors.white,
+        child: Column(
+          children: [
+            Spacer(),
+            TextFormField(
+              controller: _email,
+              decoration: InputDecoration(
+                hintText: "Something@email.com",
+                labelText: "Email",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+                hintStyle: TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
-            
-          )
-          ],),
+            TextFormField(
+              controller: _password,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Spacer(),
+          ],
         ),
       ),
     );
