@@ -23,6 +23,13 @@ class _AuthenticationState extends State<Authentication> {
             Spacer(),
             TextFormField(
               controller: _email,
+              cursorColor: Colors.blue,
+              style: TextStyle(
+                color: Color.fromRGBO(244, 180, 0, 1),
+                decorationColor: Color.fromRGBO(66, 133, 244, 1),
+                fontSize: 19,
+                // backgroundColor: Colors.blue,
+              ),
               decoration: InputDecoration(
                 hintText: "Something@email.com",
                 labelText: "Email",
@@ -32,6 +39,11 @@ class _AuthenticationState extends State<Authentication> {
                 hintStyle: TextStyle(
                   color: Colors.white,
                 ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      const BorderSide(color: Colors.blueGrey, width: 2.0),
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
               ),
             ),
             SizedBox(
@@ -40,9 +52,13 @@ class _AuthenticationState extends State<Authentication> {
             TextFormField(
               controller: _password,
               obscureText: true,
-              
               decoration: InputDecoration(
                 labelText: "Password",
+                enabledBorder: OutlineInputBorder(
+                  borderSide:
+                      const BorderSide(color: Colors.blueGrey, width: 2.0),
+                  borderRadius: BorderRadius.circular(25.0),
+                ),
                 labelStyle: TextStyle(
                   color: Colors.white,
                 ),
@@ -51,7 +67,7 @@ class _AuthenticationState extends State<Authentication> {
             SizedBox(
               height: 60,
             ),
-            customButton(context, "Sign In" , 60),
+            customButton(context, "Sign In", 60),
             Spacer(),
           ],
         ),
