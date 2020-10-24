@@ -38,7 +38,6 @@ Widget customButton(BuildContext context, String title, int size) {
             Color.fromRGBO(66, 133, 244, 1),
             Color.fromRGBO(219, 68, 55, 1),
             Color.fromRGBO(244, 180, 0, 1),
-            
           ]),
       borderRadius: BorderRadius.circular(12),
     ),
@@ -46,10 +45,10 @@ Widget customButton(BuildContext context, String title, int size) {
       child: Text(
         title,
         style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2),
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     ),
   );

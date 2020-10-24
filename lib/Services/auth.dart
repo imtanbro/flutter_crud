@@ -27,7 +27,7 @@ class _AuthenticationState extends State<Authentication> {
               style: TextStyle(
                 color: Color.fromRGBO(244, 180, 0, 1),
                 decorationColor: Color.fromRGBO(66, 133, 244, 1),
-                fontSize: 19,
+
                 // backgroundColor: Colors.blue,
               ),
               decoration: InputDecoration(
@@ -40,8 +40,7 @@ class _AuthenticationState extends State<Authentication> {
                   color: Colors.white,
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      const BorderSide(color: Colors.teal, width: 2.0),
+                  borderSide: const BorderSide(color: Colors.pink, width: 2.0),
                   borderRadius: BorderRadius.circular(25.0),
                 ),
               ),
@@ -56,14 +55,13 @@ class _AuthenticationState extends State<Authentication> {
               style: TextStyle(
                 color: Color.fromRGBO(244, 180, 0, 1),
                 decorationColor: Color.fromRGBO(66, 133, 244, 1),
-                fontSize: 19,
+
                 // backgroundColor: Colors.blue,
               ),
               decoration: InputDecoration(
                 labelText: "Password",
                 enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      const BorderSide(color: Colors.teal, width: 2.0),
+                  borderSide: const BorderSide(color: Colors.pink, width: 2.0),
                   borderRadius: BorderRadius.circular(25.0),
                 ),
                 labelStyle: TextStyle(
@@ -72,9 +70,15 @@ class _AuthenticationState extends State<Authentication> {
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 50,
             ),
-            customButton(context, "Sign In", 60),
+            GestureDetector(
+                onTap: () {}, child: customButton(context, "Sign In", 100)),
+            SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+                onTap: () {}, child: customButton(context, "Register", 100)),
             Spacer(),
           ],
         ),

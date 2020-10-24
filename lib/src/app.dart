@@ -12,6 +12,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: "Authentication",
       home: Authentication(),      
+      debugShowCheckedModeBanner: false,
     );
   }
 }
