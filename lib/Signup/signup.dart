@@ -78,7 +78,7 @@ class _RegisterState extends State<Register> {
                 validator: (val) {
                   return val.length <= 2
                       ? null
-                      : "Roll number should be of 2 digits";
+                      : "Roll number should be of 2 digit";
                 },
                 style: TextStyle(
                   color: Color.fromRGBO(244, 180, 0, 1),
