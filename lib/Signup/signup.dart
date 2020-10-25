@@ -44,36 +44,7 @@ class _RegisterState extends State<Register> {
           child: Column(
             children: [
               
-              // TextFormField(
-              //   controller: _email,
-              //   cursorColor: Colors.blue,
-              //   validator: (value) {
-              //     if (value.isEmpty) {
-              //       return "Username cannot be empty";
-              //     } else
-              //       return null;
-              //   },
-              //   style: TextStyle(
-              //     color: Color.fromRGBO(244, 180, 0, 1),
-              //     decorationColor: Color.fromRGBO(66, 133, 244, 1),
-
-              //     // backgroundColor: Colors.blue,
-              //   ),
-              //   decoration: InputDecoration(
-              //     hintText: "Something@email.com",
-              //     labelText: "Email",
-              //     labelStyle: TextStyle(
-              //       color: Colors.white,
-              //     ),
-              //     hintStyle: TextStyle(
-              //       color: Colors.white,
-              //     ),
-              //     enabledBorder: OutlineInputBorder(
-              //       borderSide: const BorderSide(color: Colors.pink, width: 2.0),
-              //       borderRadius: BorderRadius.circular(25.0),
-              //     ),
-              //   ),
-              // ),
+              // 
               // SizedBox(
               //   height: size.height * 0.01,
               // ),
