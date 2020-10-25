@@ -44,7 +44,39 @@ class _RegisterState extends State<Register> {
           child: Column(
             children: [
               
-             
+              TextFormField(
+                validator: (val) {
+                  return val.isEmpty ? "Enter username" : null;
+                },
+                style: TextStyle(
+                  color: Color.fromRGBO(244, 180, 0, 1),
+                  decorationColor: Color.fromRGBO(66, 133, 244, 1),
+
+                  // backgroundColor: Colors.blue,
+                ),
+                decoration: InputDecoration(
+                  hintText: "Enter Username",
+                  labelText: "Username",
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Colors.pink, width: 2.0),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                ),
+                onChanged: (val) {
+                  fname = val;
+                },
+              ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
+
               TextFormField(
                 validator: (val) {
                   return val.isEmpty ? "Enter Full Name" : null;
