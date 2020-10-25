@@ -8,10 +8,9 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  TextEditingController _email = TextEditingController();
-  TextEditingController _password = TextEditingController();
+  
   final _formKey = GlobalKey<FormState>();
-  String fname, mname, lname, userId, div, semister, branch, aboutyou, rollno;
+  String name, userId, div, semister, branch, aboutyou, rollno;
   DateTime pickeddate;
 
   // DatabaseService databaseService = new DatabaseService();
@@ -43,7 +42,6 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child: ListView(
             children: [
-
               TextFormField(
                 validator: (val) {
                   return val.isEmpty ? "Enter Full Name" : null;
@@ -70,7 +68,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 onChanged: (val) {
-                  fname = val;
+                  name = val;
                 },
               ),
               SizedBox(
