@@ -135,7 +135,7 @@ class _RegisterState extends State<Register> {
                           value: "Civil Engineering",
                           child: Text("Civil Engineering")),
                       DropdownMenuItem(
-                          value: "Chemical Engineering ",
+                          value: "Chemical Engineering",
                           child: Text("Chemical Engineering")),
                     ],
                     onChanged: (val) {
