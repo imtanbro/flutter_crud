@@ -149,6 +149,7 @@ class _RegisterState extends State<Register> {
                       style: TextStyle(color: Colors.white),
                     ),
                     value: branch,
+                    
                   ),
                   SizedBox(
                     width: 40,
