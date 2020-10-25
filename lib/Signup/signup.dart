@@ -8,7 +8,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  
   final _formKey = GlobalKey<FormState>();
   String name, userId, div, semister, branch, aboutyou, rollno;
   DateTime pickeddate;
@@ -136,7 +135,7 @@ class _RegisterState extends State<Register> {
                           value: "Civil Engineering",
                           child: Text("Civil Engineering")),
                       DropdownMenuItem(
-                          value: "Chemical Engineering",
+                          value: "Chemical Engineering ",
                           child: Text("Chemical Engineering")),
                     ],
                     onChanged: (val) {
@@ -149,7 +148,6 @@ class _RegisterState extends State<Register> {
                       style: TextStyle(color: Colors.white),
                     ),
                     value: branch,
-                    
                   ),
                   SizedBox(
                     width: 40,
@@ -214,11 +212,9 @@ class _RegisterState extends State<Register> {
                   div = val;
                 },
               ),
-
               SizedBox(
                 height: size.height * 0.01,
               ),
-
               SizedBox(
                 height: 50,
               ),
@@ -229,8 +225,9 @@ class _RegisterState extends State<Register> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.done),
         onPressed: () {
-          if (_formKey.currentState.validate()){print("Pressed");}
-          
+          if (_formKey.currentState.validate()) {
+            print("Pressed");
+          }
         },
       ),
     );
