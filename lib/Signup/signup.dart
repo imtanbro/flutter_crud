@@ -228,7 +228,8 @@ class _RegisterState extends State<Register> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.done),
         onPressed: () {
-          print("Pressed");
+          if (_formKey.currentState.validate()){print("Pressed");}
+          
         },
       ),
     );
