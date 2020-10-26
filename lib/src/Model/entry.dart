@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/Login/login.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class EntryPage extends StatelessWidget {
@@ -10,11 +11,11 @@ class EntryPage extends StatelessWidget {
         child: Column(children: [
           GestureDetector(
             onTap: () {
-              
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Authentication()));
             },
-            child: customButton(context, "Teachers Login", 30)),
+            child: customButton(context, "Teacher", 30)),
           SizedBox(height: 40,),
-          customButton(context, "Student Login", 30),
+          customButton(context, "Student", 30),
         ],),
       ),
     );

@@ -15,6 +15,7 @@ Future<bool> signIn(String email, String password) async {
     } else if (e.code == 'wrong-password') {
       print('Wrong password provided for that user.');
     }
+    return false;
   } catch (e) {
     print(e.toString());
     return false;

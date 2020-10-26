@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/firestore_services.dart';
+import 'package:flutter_crud/Signup/signup.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class Authentication extends StatefulWidget {
@@ -75,9 +76,11 @@ class _AuthenticationState extends State<Authentication> {
             ),
             GestureDetector(
                 onTap: () async {
-                  bool registernavigate =
+                  bool signinnavigator =
                       await signIn(_email.text, _password.text);
-                  if (registernavigate) {}
+                  if (!signinnavigator) {
+                    print("Error");
+                  }
                 },
                 child: customButton(context, "Sign In", 100)),
             SizedBox(
@@ -87,7 +90,9 @@ class _AuthenticationState extends State<Authentication> {
                 onTap: () async {
                   bool registernavigate =
                       await register(_email.text, _password.text);
-                  if (registernavigate) {}
+                  if (!registernavigate) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
+                  }
                 },
                 child: customButton(context, "Register", 100)),
             Spacer(),
