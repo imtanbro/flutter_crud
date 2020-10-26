@@ -3,6 +3,9 @@ import 'package:flutter_crud/Services/firestore_services.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class Register extends StatefulWidget {
+  bool isfield;
+
+  Register(this.isfield);
   @override
   _RegisterState createState() => _RegisterState();
 }
