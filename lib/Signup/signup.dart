@@ -123,7 +123,7 @@ class _RegisterState extends State<Register> {
                 children: [
                   DropdownButton<String>(
                     style: TextStyle(
-                      s
+                      color: Colors.white,
                     ),
                     // dropdownColor: Colors.white,
                     items: [
