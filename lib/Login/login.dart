@@ -82,7 +82,7 @@ class _AuthenticationState extends State<Authentication> {
                     print("Error");
                   }
                   else{
-                    
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Register()));
                   }
                 },
                 child: customButton(context, "Sign In", 100)),
