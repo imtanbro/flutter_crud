@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Auth extends StatefulWidget {
   @override
   _AuthState createState() => _AuthState();
