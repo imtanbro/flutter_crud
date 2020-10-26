@@ -122,6 +122,9 @@ class _RegisterState extends State<Register> {
               Row(
                 children: [
                   DropdownButton<String>(
+                    style: TextStyle(
+                      s
+                    ),
                     // dropdownColor: Colors.white,
                     items: [
                       DropdownMenuItem(
@@ -148,6 +151,7 @@ class _RegisterState extends State<Register> {
                       style: TextStyle(color: Colors.white),
                     ),
                     value: branch,
+                    focusColor: Colors.white,
                   ),
                   SizedBox(
                     width: 40,
