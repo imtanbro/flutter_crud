@@ -3,21 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_crud/src/Model/entry.dart';
 
-class FireStoreService {
-  FirebaseFirestore _db = FirebaseFirestore.instance;
-
-  //Get Entries
-  Stream<List<Entry>> getEntries() {
-    return _db.collection('entries').snapshots().map((snapshot) =>
-        snapshot.docs.map((doc) => Entry.fromJson(doc.data())).toList());
-  }
-
-  //Insert
-
-  //Update
-
-  //Delete
-}
 
 Future<bool> signIn(String email, String password) async {
   try {

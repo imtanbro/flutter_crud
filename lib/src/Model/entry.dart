@@ -1,22 +1,22 @@
-class Entry {
-  final String uid;
-  final String date;
-  final String entry;
+import 'package:flutter/material.dart';
+import 'package:flutter_crud/widgets/widgets.dart';
 
-  Entry({this.date, this.entry, this.uid});
-  factory Entry.fromJson(Map<String, dynamic> json) {
-    return Entry(
-      date: json['date'],
-      entry: json['entry'],
-      uid: json['entryId'],
+class EntryPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 300, 10, 100),
+        child: Column(children: [
+          GestureDetector(
+            onTap: () {
+              
+            },
+            child: customButton(context, "Teachers Login", 30)),
+          SizedBox(height: 40,),
+          customButton(context, "Student Login", 30),
+        ],),
+      ),
     );
-  }
-  
-  Map<String, dynamic> toMap() {
-    return {
-      "date": date,
-      "entry": entry,
-      "entryId": uid,
-    };
   }
 }

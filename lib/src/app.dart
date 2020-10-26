@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_crud/Login/login.dart';
 import 'package:flutter_crud/Services/auth.dart';
 import 'package:flutter_crud/Signup/signup.dart';
+import 'package:flutter_crud/src/Model/entry.dart';
 
 class App extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Authentication",
-      home: Register(),      
+      home: EntryPage(),      
       debugShowCheckedModeBanner: false,
     );
   }
