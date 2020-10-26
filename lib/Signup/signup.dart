@@ -157,6 +157,9 @@ class _RegisterState extends State<Register> {
                     width: 40,
                   ),
                   DropdownButton<String>(
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                     items: [
                       DropdownMenuItem(value: "Sem 1", child: Text("Sem 1")),
                       DropdownMenuItem(value: "Sem 2", child: Text("Sem 2")),
