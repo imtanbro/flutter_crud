@@ -81,6 +81,9 @@ class _AuthenticationState extends State<Authentication> {
                   if (!signinnavigator) {
                     print("Error");
                   }
+                  else{
+                    
+                  }
                 },
                 child: customButton(context, "Sign In", 100)),
             SizedBox(
