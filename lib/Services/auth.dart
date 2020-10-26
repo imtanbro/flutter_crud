@@ -1,9 +1,9 @@
-class  extends StatefulWidget {
+class Auth extends StatefulWidget {
   @override
-  _State createState() => _State();
+  _AuthState createState() => _AuthState();
 }
 
-class _State extends State<> {
+class _AuthState extends State<Auth> {
   @override
   Widget build(BuildContext context) {
     return Container(
