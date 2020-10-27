@@ -42,15 +42,13 @@ Future<bool> register(String email, String password) async {
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     return true;
-  } on FirebaseAuthException catch (e) {
+  } catch (e) {
     if (e.code == 'weak-password') {
       print('The password provided is too weak.');
     } else if (e.code == 'email-already-in-use') {
       print('The account already exists for that email.');
     }
-    return false;
-  } catch (e) {
-    print(e);
+    print(e.toString());
     return false;
   }
 }
