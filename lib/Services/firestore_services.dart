@@ -36,7 +36,7 @@ Future<bool> register(String email, String password) async {
   //     }
   //   }
   //   return false;
-  // } Still got the error 11
+  // } Still got the error 12
 
   try {
     await FirebaseAuth.instance
