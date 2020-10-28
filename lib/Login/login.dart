@@ -93,7 +93,7 @@ class _AuthenticationState extends State<Authentication> {
                 onTap: () async {
                   bool registernavigate =
                       await register(_email.text, _password.text);
-                  if (!registernavigate) {
+                  if (registernavigate) {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
                   }
                 },
