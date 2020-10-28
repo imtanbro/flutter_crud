@@ -74,24 +74,6 @@ Future<bool> signIn(String email, String password) async {
 }
 
 Future<bool> register(String email, String password) async {
-  // try {
-  //   await FirebaseAuth.instance
-  //       .createUserWithEmailAndPassword(email: email, password: password);
-  //   return true;
-  // } on FirebaseAuthException catch (e) {
-  //   if (e.code == 'weak-password') {
-  //     print("The password is too weak");
-  //   } else
-  //   //
-  //   if (e is PlatformException) {
-  //     if (e.code == "email-already-in-use" ||
-  //         e.message ==
-  //             "The email address is already in use by another account.") {
-  //       print("The account already exists for that email");
-  //     }
-  //   }
-  //   return false;
-  // } Still got the error
 
   try {
     await FirebaseAuth.instance
