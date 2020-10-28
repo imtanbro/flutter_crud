@@ -32,6 +32,8 @@ Future<bool> signIn(String email, String password) async {
   try {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password);
+
+    return true;
   } catch (e) {
     authProblems errorType;
     if (Platform.isAndroid) {
@@ -65,7 +67,9 @@ Future<bool> signIn(String email, String password) async {
           print('Case ${e.message} is not yet implemented');
       }
     }
+
     print('The error is $errorType');
+    return false;
   }
 }
 
