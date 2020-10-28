@@ -23,13 +23,6 @@ Future<bool> signIn(String email, String password) async {
     return false;
   }
 
-  // await FirebaseAuth.instance
-  //     .signInWithEmailAndPassword(email: email, password: password)
-  //     .catchError((onError) {
-  //   displayToastMessage("Error: " + onError.toString());
-  // });
-
-  
 }
 
 Future<bool> register(String email, String password) async {
