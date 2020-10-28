@@ -36,6 +36,7 @@ Future<bool> register(String email, String password) async {
     } else if (e.code == 'email-already-in-use') {
       print('The account already exists for that email.');
     }
+    displayToastMessage(e.toString());
     print(e.toString());
     return false;
   }
