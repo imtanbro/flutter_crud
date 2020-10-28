@@ -20,6 +20,7 @@ Future<bool> signIn(String email, String password) async {
     } else if (e.code == 'wrong-password') {
       print('Wrong password provided for that user.');
     }
+    displayToastMessage(e.toString());
     return false;
   }
 }
