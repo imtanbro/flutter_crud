@@ -51,6 +51,9 @@ class _AuthenticationState extends State<Authentication> {
               height: 20,
             ),
             TextFormField(
+              validator: (val) {
+                
+              },
               controller: _password,
               obscureText: true,
               cursorColor: Colors.blue,
