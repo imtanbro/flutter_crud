@@ -106,6 +106,9 @@ class _RegisterState extends State<Register> {
                   fname = val;
                 },
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               TextFormField(
                 validator: (val) {
                   return val.isEmpty ? "Enter Middle Name" : null;
@@ -134,6 +137,9 @@ class _RegisterState extends State<Register> {
                 onChanged: (val) {
                   mname = val;
                 },
+              ),
+              SizedBox(
+                height: size.height * 0.01,
               ),
               TextFormField(
                 validator: (val) {
@@ -167,6 +173,7 @@ class _RegisterState extends State<Register> {
               SizedBox(
                 height: size.height * 0.01,
               ),
+
               TextFormField(
                 validator: (val) {
                   return val.length <= 5
@@ -283,9 +290,9 @@ class _RegisterState extends State<Register> {
               ),
               TextFormField(
                 validator: (val) {
-                  return val.length <= 2
+                  return val =="A" || val == "B"
                       ? null
-                      : "Roll number should be of 2 digits";
+                      : "Division Should be A or B";
                 },
                 style: TextStyle(
                   color: Color.fromRGBO(244, 180, 0, 1),
@@ -308,9 +315,9 @@ class _RegisterState extends State<Register> {
                     borderRadius: BorderRadius.circular(25.0),
                   ),
                 ),
-                keyboardType: TextInputType.number,
+
                 onChanged: (val) {
-                  div = val;
+                  div = val.toUpperCase();
                 },
               ),
               SizedBox(

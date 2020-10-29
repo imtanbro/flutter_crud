@@ -26,6 +26,11 @@ class NavbarCustom extends StatelessWidget with PreferredSizeWidget {
   }
 }
 
+
+
+
+
+
 Widget customButton(BuildContext context, String title, int size) {
   return Container(
     width: MediaQuery.of(context).size.width - size,
