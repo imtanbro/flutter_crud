@@ -26,42 +26,52 @@ class NavbarCustom extends StatelessWidget with PreferredSizeWidget {
   }
 }
 
-class Bottomnabbar extends StatelessWidget with PreferredSizeWidget {
+class Bottomnabbar extends StatefulWidget with PreferredSizeWidget {
   @override
   final Size preferredSize;
-  final int index;
+  int index;
 
   Bottomnabbar(
     this.index, {
     Key key,
   })  : preferredSize = Size.fromHeight(60),
         super(key: key);
+
+  @override
+  _BottomnabbarState createState() => _BottomnabbarState();
+}
+
+class _BottomnabbarState extends State<Bottomnabbar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-    currentIndex: index,
-    items: [
-      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-      BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance"),
-      BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-    ],
-    onTap: (val) {},
-  );
+      currentIndex: widget.index,
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+        BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance"),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+      ],
+      onTap: (val) {
+        setState(() {
+          widget.index = val;
+        });
+      },
+    );
   }
 }
 
-Widget bottomnavbar(
-    {BuildContext context, int index, int size, Function state}) {
-  return BottomNavigationBar(
-    currentIndex: index,
-    items: [
-      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-      BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance"),
-      BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-    ],
-    onTap: (val) {},
-  );
-}
+// Widget bottomnavbar(
+//     {BuildContext context, int index, int size, Function state}) {
+//   return BottomNavigationBar(
+//     currentIndex: index,
+//     items: [
+//       BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+//       BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance"),
+//       BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+//     ],
+//     onTap: (val) {},
+//   );
+// }
 
 Widget customButton(BuildContext context, String title, int size) {
   return Container(
