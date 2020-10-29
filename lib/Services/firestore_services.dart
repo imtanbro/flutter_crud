@@ -40,7 +40,6 @@ displayToastMessage(String message) {
 }
 
 class DatabaseService {
-
   Future<void> addTeachersData(Map teachersData, String teacherId) async {
     await FirebaseFirestore.instance
         .collection("Teachers Data")
@@ -61,15 +60,23 @@ class DatabaseService {
     });
   }
 
-  Future<void> addStudent(Map studentsData, String studentId, String branch, String sem, String div,) async {
+  Future<void> addStudent(
+    Map studentsData,
+    String studentId,
+    String branch,
+    String sem,
+    String div,
+  ) async {
     await FirebaseFirestore.instance
         .collection("Branch")
-        .doc(branch).collection(sem).doc(div).collection()
+        .doc(branch)
+        .collection(sem)
+        .doc(div)
+        .collection("Student Information")
+        .doc(studentId)
         .set(studentsData)
         .catchError((e) {
       print(e.toString());
     });
   }
-
-
 }

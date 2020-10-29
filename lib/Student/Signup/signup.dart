@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/firestore_services.dart';
+import 'package:flutter_crud/Student/HomeScreen/homescreen.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:random_string/random_string.dart';
 
@@ -49,7 +50,10 @@ class _RegisterState extends State<Register> {
       "About You": aboutyou,
       "Attendance": attendace.toString(),
     };
-    db.addStudent(studentData, studentId);
+    db.addStudentsData(studentData, studentId);
+    db.addStudent(studentData, studentId, branch, semister, div).then((value) =>
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomePage())));
   }
 
   @override
@@ -323,6 +327,7 @@ class _RegisterState extends State<Register> {
         child: Icon(Icons.done),
         onPressed: () {
           if (_formKey.currentState.validate()) {
+            addStudentData();
             print("Pressed");
           }
         },
