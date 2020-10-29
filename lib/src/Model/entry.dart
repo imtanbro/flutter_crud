@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_crud/Login/login.dart';
+import 'package:flutter_crud/Student/Login/login.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class EntryPage extends StatelessWidget {

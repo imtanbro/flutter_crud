@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/firestore_services.dart';
-import 'package:flutter_crud/Signup/signup.dart';
+import 'package:flutter_crud/Student/Signup/signup.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class Authentication extends StatefulWidget {
@@ -51,9 +51,6 @@ class _AuthenticationState extends State<Authentication> {
               height: 20,
             ),
             TextFormField(
-              validator: (val) {
-                
-              },
               controller: _password,
               obscureText: true,
               cursorColor: Colors.blue,
