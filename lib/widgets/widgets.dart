@@ -68,6 +68,7 @@ class _BottomnavbarState extends State<Bottomnavbar> {
       onTap: (val) {
         setState(() {
           widget.index = val;
+          print(widget.index);
         });
       },
     );

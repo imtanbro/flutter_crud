@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/Student/Attendance/attendance.dart';
+import 'package:flutter_crud/Student/Profile/profile.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -7,13 +9,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+  
+  
+    List<Widget> _children = [
+      HomePage(),
+      Attendance(),
+      Profile(),
+    ];
+   
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: NavbarCustom("Home Page"),
-      bottomNavigationBar: Bottomnavbar(0),
-      body: Container(color: Colors.black,),
-      
+      bottomNavigationBar: Bottomnavbar(_currentIndex),
+      body: _children[_currentIndex],
     );
   }
 }
