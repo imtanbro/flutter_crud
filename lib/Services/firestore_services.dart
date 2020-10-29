@@ -1,13 +1,7 @@
-import 'dart:io';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_crud/src/Model/entry.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-enum authProblems { UserNotFound, PasswordNotValid, NetworkError }
+
 
 Future<bool> signIn(String email, String password) async {
   try {
