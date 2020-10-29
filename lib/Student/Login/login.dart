@@ -33,6 +33,7 @@ class _AuthenticationState extends State<Authentication> {
 
                 // backgroundColor: Colors.blue,
               ),
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 hintText: "Something@email.com",
                 labelText: "Email",
@@ -95,7 +96,7 @@ class _AuthenticationState extends State<Authentication> {
                   bool registernavigate =
                       await register(_email.text, _password.text);
                   if (registernavigate) {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Register(_email.text,_password.text)));
                   }
                 },
                 child: customButton(context, "Register", 100)),

@@ -82,7 +82,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
                     print("Error");
                   }
                   else{
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Register()));
+                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Register()));
                   }
                 },
                 child: customButton(context, "Sign In", 100)),
@@ -94,7 +94,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
                   bool registernavigate =
                   await register(_email.text, _password.text);
                   if (registernavigate) {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
                   }
                 },
                 child: customButton(context, "Register", 100)),

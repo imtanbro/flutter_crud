@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/firestore_services.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
+import 'package:random_string/random_string.dart';
 
 class Register extends StatefulWidget {
+  String email, password;
+  Register(this.email, this.password);
   @override
   _RegisterState createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
-  String name, userId, div, semister, branch, aboutyou, rollno;
+  String fname,
+      mname,
+      lname,
+      div,
+      semister,
+      branch,
+      aboutyou = "",
+      rollno,
+      studentId;
+  int attendace = 0;
   DateTime pickeddate;
+  DatabaseService db = new DatabaseService();
 
   // DatabaseService databaseService = new DatabaseService();
   bool isEmail(String em) {
@@ -18,6 +31,25 @@ class _RegisterState extends State<Register> {
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regExp = new RegExp(p);
     return regExp.hasMatch(em);
+  }
+
+  addStudentData() async {
+    studentId = randomAlphaNumeric(10);
+    Map<String, String> studentData = {
+      "FirstName": fname,
+      "MiddleName": mname,
+      "LastName": lname,
+      "Email": widget.email,
+      "RollNo": rollno,
+      "password": widget.password,
+      "Dataofbirth": pickeddate.toString(),
+      "Branch": branch,
+      "Semister": semister,
+      "Division": div,
+      "About You": aboutyou,
+      "Attendance": attendace.toString(),
+    };
+    db.addStudent(studentData, studentId);
   }
 
   @override
@@ -43,7 +75,7 @@ class _RegisterState extends State<Register> {
             children: [
               TextFormField(
                 validator: (val) {
-                  return val.isEmpty ? "Enter Full Name" : null;
+                  return val.isEmpty ? "Enter First Name" : null;
                 },
                 style: TextStyle(
                   color: Color.fromRGBO(244, 180, 0, 1),
@@ -52,8 +84,8 @@ class _RegisterState extends State<Register> {
                   // backgroundColor: Colors.blue,
                 ),
                 decoration: InputDecoration(
-                  hintText: "Your Full Name",
-                  labelText: "Full Name",
+                  hintText: "Your Name",
+                  labelText: "First Name",
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),
@@ -67,7 +99,65 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 onChanged: (val) {
-                  name = val;
+                  fname = val;
+                },
+              ),
+              TextFormField(
+                validator: (val) {
+                  return val.isEmpty ? "Enter Middle Name" : null;
+                },
+                style: TextStyle(
+                  color: Color.fromRGBO(244, 180, 0, 1),
+                  decorationColor: Color.fromRGBO(66, 133, 244, 1),
+
+                  // backgroundColor: Colors.blue,
+                ),
+                decoration: InputDecoration(
+                  hintText: "Your Middle/Fathers Name",
+                  labelText: "Middle Name",
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Colors.pink, width: 2.0),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                ),
+                onChanged: (val) {
+                  mname = val;
+                },
+              ),
+              TextFormField(
+                validator: (val) {
+                  return val.isEmpty ? "Enter Last Name" : null;
+                },
+                style: TextStyle(
+                  color: Color.fromRGBO(244, 180, 0, 1),
+                  decorationColor: Color.fromRGBO(66, 133, 244, 1),
+
+                  // backgroundColor: Colors.blue,
+                ),
+                decoration: InputDecoration(
+                  hintText: "Your Last Name",
+                  labelText: "Last Name",
+                  labelStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        const BorderSide(color: Colors.pink, width: 2.0),
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                ),
+                onChanged: (val) {
+                  lname = val;
                 },
               ),
               SizedBox(
@@ -75,9 +165,9 @@ class _RegisterState extends State<Register> {
               ),
               TextFormField(
                 validator: (val) {
-                  return val.length <= 2
+                  return val.length <= 5
                       ? null
-                      : "Roll number should be of 2 digits";
+                      : "Roll number should be of 5 digits";
                 },
                 style: TextStyle(
                   color: Color.fromRGBO(244, 180, 0, 1),

@@ -39,7 +39,7 @@ displayToastMessage(String message) {
   Fluttertoast.showToast(msg: message);
 }
 
-class Database {
+class DatabaseService {
 
   Future<void> addTeachersData(Map teachersData, String teacherId) async {
     await FirebaseFirestore.instance
@@ -61,5 +61,15 @@ class Database {
     });
   }
 
-  
+  Future<void> addStudent(Map studentsData, String studentId, String branch, String sem, String div,) async {
+    await FirebaseFirestore.instance
+        .collection("Branch")
+        .doc(branch).collection(sem).doc(div).collection()
+        .set(studentsData)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+
 }
