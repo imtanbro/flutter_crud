@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/auth.dart';
+import 'package:flutter_crud/Student/HomeScreen/homescreen.dart';
 import 'package:flutter_crud/Student/Signup/signup.dart';
 import 'package:flutter_crud/src/Model/entry.dart';
 
@@ -13,7 +14,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Authentication",
-      home: EntryPage(),      
+      home: HomePage(),      
       debugShowCheckedModeBanner: false,
     );
   }

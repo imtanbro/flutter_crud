@@ -46,13 +46,24 @@ class _BottomnavbarState extends State<Bottomnavbar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: widget.index,
+      type: BottomNavigationBarType.shifting,
+      selectedFontSize: 15,
       items: [
-         
-      
-         
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home", backgroundColor: Color.fromRGBO(66, 133, 244, 1),),
-        BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance", backgroundColor: Color.fromRGBO(219, 68, 55, 1),),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile", backgroundColor: Color.fromRGBO(244, 180, 0, 1),),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: "Home",
+          backgroundColor: Color.fromRGBO(66, 133, 244, 1),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add),
+          label: "Attendance",
+          backgroundColor: Color.fromRGBO(219, 68, 55, 1),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: "Profile",
+          backgroundColor: Color.fromRGBO(244, 180, 0, 0.7),
+        ),
       ],
       onTap: (val) {
         setState(() {
