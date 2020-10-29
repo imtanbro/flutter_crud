@@ -1,7 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-
 
 Future<bool> signIn(String email, String password) async {
   try {
@@ -20,7 +19,6 @@ Future<bool> signIn(String email, String password) async {
 }
 
 Future<bool> register(String email, String password) async {
-
   try {
     await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
@@ -39,4 +37,29 @@ Future<bool> register(String email, String password) async {
 
 displayToastMessage(String message) {
   Fluttertoast.showToast(msg: message);
+}
+
+class Database {
+
+  Future<void> addTeachersData(Map teachersData, String teacherId) async {
+    await FirebaseFirestore.instance
+        .collection("Teachers Data")
+        .doc(teacherId)
+        .set(teachersData)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  Future<void> addStudentsData(Map studentsData, String studentId) async {
+    await FirebaseFirestore.instance
+        .collection("Students Data")
+        .doc(studentId)
+        .set(studentsData)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  
 }

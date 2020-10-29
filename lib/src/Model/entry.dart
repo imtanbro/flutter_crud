@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Student/Login/login.dart';
+import 'package:flutter_crud/Teacher/Login/teacher_login.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class EntryPage extends StatelessWidget {
@@ -13,9 +14,13 @@ class EntryPage extends StatelessWidget {
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => Authentication()));
             },
-            child: customButton(context, "Teacher", 30)),
+            child: customButton(context, "Student", 30)),
           SizedBox(height: 40,),
-          customButton(context, "Student", 30),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => TeacherLogin()));
+            },
+            child: customButton(context, "Teacher", 30)),
         ],),
       ),
     );

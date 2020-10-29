@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/firestore_services.dart';
+import 'package:flutter_crud/Student/HomeScreen/homescreen.dart';
 import 'package:flutter_crud/Student/Signup/signup.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
@@ -82,7 +83,7 @@ class _AuthenticationState extends State<Authentication> {
                     print("Error");
                   }
                   else{
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Register()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
                   }
                 },
                 child: customButton(context, "Sign In", 100)),
