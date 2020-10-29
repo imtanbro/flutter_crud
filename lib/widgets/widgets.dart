@@ -26,6 +26,30 @@ class NavbarCustom extends StatelessWidget with PreferredSizeWidget {
   }
 }
 
+class Bottomnabbar extends StatelessWidget with PreferredSizeWidget {
+  @override
+  final Size preferredSize;
+  final int index;
+
+  Bottomnabbar(
+    this.index, {
+    Key key,
+  })  : preferredSize = Size.fromHeight(60),
+        super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+    currentIndex: index,
+    items: [
+      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance"),
+      BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+    ],
+    onTap: (val) {},
+  );
+  }
+}
+
 Widget bottomnavbar(
     {BuildContext context, int index, int size, Function state}) {
   return BottomNavigationBar(
@@ -35,11 +59,7 @@ Widget bottomnavbar(
       BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance"),
       BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
     ],
-    onTap: (val) {
-      state(
-        val = index;
-      );
-    },
+    onTap: (val) {},
   );
 }
 
