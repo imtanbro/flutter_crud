@@ -26,22 +26,22 @@ class NavbarCustom extends StatelessWidget with PreferredSizeWidget {
   }
 }
 
-class Bottomnabbar extends StatefulWidget with PreferredSizeWidget {
+class Bottomnavbar extends StatefulWidget with PreferredSizeWidget {
   @override
   final Size preferredSize;
   int index;
 
-  Bottomnabbar(
+  Bottomnavbar(
     this.index, {
     Key key,
   })  : preferredSize = Size.fromHeight(60),
         super(key: key);
 
   @override
-  _BottomnabbarState createState() => _BottomnabbarState();
+  _BottomnavbarState createState() => _BottomnavbarState();
 }
 
-class _BottomnabbarState extends State<Bottomnabbar> {
+class _BottomnavbarState extends State<Bottomnavbar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
