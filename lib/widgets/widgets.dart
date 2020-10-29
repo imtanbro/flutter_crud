@@ -26,10 +26,22 @@ class NavbarCustom extends StatelessWidget with PreferredSizeWidget {
   }
 }
 
-
-
-
-
+Widget bottomnavbar(
+    {BuildContext context, int index, int size, Function state}) {
+  return BottomNavigationBar(
+    currentIndex: index,
+    items: [
+      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      BottomNavigationBarItem(icon: Icon(Icons.add), label: "Attendance"),
+      BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+    ],
+    onTap: (val) {
+      state(
+        val = index;
+      );
+    },
+  );
+}
 
 Widget customButton(BuildContext context, String title, int size) {
   return Container(
