@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_multipage_form/empty_state.dart';
-import 'package:flutter_multipage_form/form.dart';
-import 'package:flutter_multipage_form/user.dart';
+import 'package:flutter_crud/Student/HomeScreen/empty_state.dart';
+import 'package:flutter_crud/Student/HomeScreen/form.dart';
+import 'package:flutter_crud/Student/HomeScreen/user.dart';
 
 class MultiForm extends StatefulWidget {
   @override
