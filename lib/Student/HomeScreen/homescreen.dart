@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Student/Attendance/attendance.dart';
+import 'package:flutter_crud/Student/HomeScreen/subject.dart';
 import 'package:flutter_crud/Student/Profile/profile.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
-class Subject{
-  String subname;
-  String div;
 
-  Subject({this.div = " ", this.subname = " "});
-}
 
 typedef OnDelete();
 
@@ -16,11 +12,12 @@ class HomePage extends StatefulWidget {
   final Subject subject;
   final OnDelete onDelete;
 
-  HomePage({this.subject,this.onDelete});
-
+  HomePage({this.subject, this.onDelete});
 
   @override
   _HomePageState createState() => _HomePageState();
+
+  bool isValid() =>  _HomePageState().validate();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -32,27 +29,65 @@ class _HomePageState extends State<HomePage> {
       appBar: NavbarCustom("Home Page"),
       body: Padding(
         padding: EdgeInsets.all(8),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextFormField(
-              initialValue: widget.subject.subname,
-              validator: (val) => val.isEmpty ? "Enter Subject Name" : null,
-              autocorrect: true,
-          decoration: InputDecoration(
-              prefixIcon: Padding(
-                padding: EdgeInsets.only( top: 15, left: 5, right: 0, bottom: 15),
-                child: SizedBox(
-                  height: 4,
-                  child: Icon(Icons.delete),
+        child: Card(
+          child: Form(
+            key: form,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                AppBar(
+                  leading: Icon(Icons.subject),
+                  title: Text("Add Subject"),
+                  centerTitle: true,
+                  actions: [
+                    IconButton(icon: Icon(Icons.delete), onPressed: widget.onDelete)
+                  ],
                 ),
-              ),
-              hintText: 'Search artist, genre, playlist',
-              hintStyle: TextStyle(fontSize: 11.0)),
-        ),
-          ],
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: TextFormField(
+                    initialValue: widget.subject.subname,
+                    validator: (val) =>
+                        val.isEmpty ? null : "Enter Subject Name you Teach",
+                    autocorrect: true,
+                    decoration: InputDecoration(
+                        labelText: 'Subject Name',
+                        labelStyle: TextStyle(fontSize: 20.0)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: TextFormField(
+                    initialValue: widget.subject.subname,
+                    validator: (val) {
+                      if (val.isEmpty) {
+                        return "Division Field Cannot be Empty";
+                      } else if (val != "A" ||
+                          val != "B" ||
+                          val != "a" ||
+                          val != "b") {
+                        return "Please enter either A or B";
+                      } else
+                        return null;
+                    },
+                    autocorrect: true,
+                    autovalidate: true,
+                    decoration: InputDecoration(
+                        labelText: 'Div',
+                        labelStyle: TextStyle(fontSize: 20.0)),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
   }
+  bool validate() {
+    var valid = form.currentState.validate();
+    if (valid) form.currentState.save();
+    return valid;
+  }
 }
+
