@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/Student/HomeScreen/multi_form.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
         child: GestureDetector(
           onTap: (){
             Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => MultiForm()));
           },
           child: customButton(context, "Dynamic button", 10)),
       ),
