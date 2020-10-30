@@ -14,7 +14,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Authentication",
-      home: HomePage(),      
+      home: HomePage(subject: Subject(),),
       debugShowCheckedModeBanner: false,
     );
   }
