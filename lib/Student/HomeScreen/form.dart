@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Student/HomeScreen/user.dart';
 
-
 typedef OnDelete();
 
 class UserForm extends StatefulWidget {
@@ -35,7 +34,7 @@ class _UserFormState extends State<UserForm> {
               AppBar(
                 leading: Icon(Icons.verified_user),
                 elevation: 0,
-                title: Text('User Details'),
+                title: Text('Subjects'),
                 backgroundColor: Theme.of(context).accentColor,
                 centerTitle: true,
                 actions: <Widget>[
