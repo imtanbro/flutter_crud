@@ -43,7 +43,7 @@ class _MultiFormState extends State<MultiForm> {
             ? Center(
                 child: EmptyState(
                   title: 'Oops',
-                  message: 'Add form by tapping add button below',
+                  message: 'Add form by tapping add button below.',
                 ),
               )
             : ListView.builder(
