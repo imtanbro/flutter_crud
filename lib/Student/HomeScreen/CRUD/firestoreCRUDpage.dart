@@ -149,35 +149,18 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     print(snapshot['Name']);
   }
 
-  void updateData(id) async {
-    FirebaseFirestore.instance
-        .collection("CRUD")
-        .doc(id)
-        .update({"Todo": "Please"})
-        .then((value) => print("User Updated"))
-        .catchError((error) => print("Failed to update user: $error"));
+  void updateData(DocumentSnapshot doc) async {
+    final DocumentSnapshot snapshot =
+        await db.collection("CRUD").doc(doc.id).update({"Todo": "Please"});
   }
 
-  CollectionReference users = FirebaseFirestore.instance.collection('CRUD');
-
-  Future<void> deleteData(id) async {
-    return users
-        .doc(id)
-        .delete()
-        .then((value) => print("User Deleted"))
-        .catchError((error) => print("Failed to delete user: $error"));
+  void deleteData(DocumentSnapshot doc) async {
+    final DocumentSnapshot snapshot =
+        await db.collection("CRUD").doc(doc.id).delete();
     setState(() {
       id = null;
     });
   }
-
-  // void deleteData(DocumentSnapshot doc) async {
-  //   final DocumentSnapshot snapshot =
-  //       await db.collection("CRUD").doc(doc.id).delete();
-  //   setState(() {
-  //     id = null;
-  //   });
-  // }
 
   String randomTodo() {
     final randomNumber = randomAlphaNumeric(1);
