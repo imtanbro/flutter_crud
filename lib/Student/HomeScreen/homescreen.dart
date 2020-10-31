@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Student/HomeScreen/CRUD/firestoreCRUDpage.dart';
 import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/multi_form.dart';
+import 'package:flutter_crud/Student/Profile/profile.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,6 +33,16 @@ class _HomePageState extends State<HomePage> {
               context, MaterialPageRoute(builder: (context) => FirestoreCRUDPage()));
             },
             child: customButton(context, "CRUD", 10)),
+
+            SizedBox(height: 10,),
+
+            GestureDetector(
+            onTap: (){
+              Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Profile()));
+            },
+            child: customButton(context, "Profile", 10)),
+
         ]),
       ),
       
