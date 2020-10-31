@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
+import 'package:random_string/random_string.dart';
 
 class FirestoreCRUDPage extends StatefulWidget {
   @override
@@ -134,7 +135,7 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
   void createData() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      DocumentReference ref = await db.collection("CRUD").add({"Name": name});
+      DocumentReference ref = await db.collection("CRUD").add({"Name": name, "Todo" : randomTodo()});
       setState(() {
         id = ref.id;
       });
@@ -149,7 +150,7 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
 
   void updateData(DocumentSnapshot doc) async {
     DocumentSnapshot snapshot =
-        await db.collection("CRUD").doc(doc.id).update({'Todo' : "Please do"});
+        await db.collection("CRUD").doc(doc.id).update('Todo' : "Please do");
   }
 
   void deleteData(DocumentSnapshot doc) async {
@@ -158,5 +159,42 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     setState(() {
       id = null;
     });
+  }
+
+  String randomTodo() {
+    final randomNumber = randomAlphaNumeric(1);
+    String todo;
+    switch(randomNumber){
+      case 1: 
+        todo = "Like";
+        break;
+      case 2: 
+        todo = "Share";
+        break;
+      case 3: 
+        todo = "Do it";
+        break;
+      case 4: 
+        todo = "Make it";
+        break;
+      case 5: 
+        todo = "Help";
+        break;
+      case 6: 
+        todo = "Up";
+        break;
+      case 7: 
+        todo = "Down";
+        break;
+      case 8: 
+        todo = "Quit";
+        break;
+      case 9: 
+        todo = "Delete";
+        break;
+      case 0: 
+        todo = "Tanmay";
+        break;
+    }
   }
 }
