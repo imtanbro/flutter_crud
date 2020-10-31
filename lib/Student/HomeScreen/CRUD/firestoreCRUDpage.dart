@@ -73,6 +73,10 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
                 color: Colors.blue,
               ),
             ],
+          ),
+          StreamBuilder<QuerySnapshot>(
+            stream: db.collection("CRUD").snapshots(),
+            builder: null,
           )
         ],
       ),
