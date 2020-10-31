@@ -90,5 +90,8 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     }
   }
 
-  void readData() async {}
+  void readData() async {
+    DocumentSnapshot snapshot = await db.collection("CRUD").doc(id).get();
+    print(snapshot['Name']);
+  }
 }
