@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_crud/Student/HomeScreen/user.dart';
+import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/user.dart';
 
 typedef OnDelete();
 

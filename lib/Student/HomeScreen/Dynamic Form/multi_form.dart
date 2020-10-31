@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_crud/Student/HomeScreen/empty_state.dart';
-import 'package:flutter_crud/Student/HomeScreen/form.dart';
-import 'package:flutter_crud/Student/HomeScreen/user.dart';
+import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/empty_state.dart';
+import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/form.dart';
+import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/user.dart';
 
 class MultiForm extends StatefulWidget {
   @override
@@ -16,9 +16,6 @@ class _MultiFormState extends State<MultiForm> {
     return Scaffold(
       appBar: AppBar(
         elevation: .0,
-        leading: Icon(
-          Icons.wb_cloudy,
-        ),
         title: Text('Subjects'),
         actions: <Widget>[
           FlatButton(
@@ -89,6 +86,7 @@ class _MultiFormState extends State<MultiForm> {
       users.forEach((form) => allValid = allValid && form.isValid());
       if (allValid) {
         var data = users.map((it) => it.user).toList();
+        // var data = users.map(<String,String>).toList();
         Navigator.push(
           context,
           MaterialPageRoute(
