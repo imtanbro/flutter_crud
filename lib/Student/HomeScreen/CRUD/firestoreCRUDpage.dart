@@ -135,7 +135,8 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
   void createData() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      DocumentReference ref = await db.collection("CRUD").add({"Name": name, "Todo" : randomTodo()});
+      DocumentReference ref =
+          await db.collection("CRUD").add({"Name": name, "Todo": randomTodo()});
       setState(() {
         id = ref.id;
       });
@@ -148,53 +149,71 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     print(snapshot['Name']);
   }
 
-  void updateData(DocumentSnapshot doc) async {
-    DocumentSnapshot snapshot =
-        await db.collection("CRUD").doc(doc.id).update('Todo' : "Please do");
+  void updateData(id) async {
+    FirebaseFirestore.instance
+        .collection("CRUD")
+        .doc(id)
+        .update({"Todo": "Please"})
+        .then((value) => print("User Updated"))
+        .catchError((error) => print("Failed to update user: $error"));
   }
 
-  void deleteData(DocumentSnapshot doc) async {
-    DocumentSnapshot snapshot =
-        await db.collection("CRUD").doc(doc.id).delete();
+  CollectionReference users = FirebaseFirestore.instance.collection('CRUD');
+
+  Future<void> deleteData(id) async {
+    return users
+        .doc(id)
+        .delete()
+        .then((value) => print("User Deleted"))
+        .catchError((error) => print("Failed to delete user: $error"));
     setState(() {
       id = null;
     });
   }
 
+  // void deleteData(DocumentSnapshot doc) async {
+  //   final DocumentSnapshot snapshot =
+  //       await db.collection("CRUD").doc(doc.id).delete();
+  //   setState(() {
+  //     id = null;
+  //   });
+  // }
+
   String randomTodo() {
     final randomNumber = randomAlphaNumeric(1);
     String todo;
-    switch(randomNumber){
-      case 1: 
+    switch (int.parse(randomNumber)) {
+      case 1:
         todo = "Like";
         break;
-      case 2: 
+      case 2:
         todo = "Share";
         break;
-      case 3: 
+      case 3:
         todo = "Do it";
         break;
-      case 4: 
+      case 4:
         todo = "Make it";
         break;
-      case 5: 
+      case 5:
         todo = "Help";
         break;
-      case 6: 
+      case 6:
         todo = "Up";
         break;
-      case 7: 
+      case 7:
         todo = "Down";
         break;
-      case 8: 
+      case 8:
         todo = "Quit";
         break;
-      case 9: 
+      case 9:
         todo = "Delete";
         break;
-      case 0: 
+      case 0:
         todo = "Tanmay";
         break;
     }
+    return todo;
   }
 }
