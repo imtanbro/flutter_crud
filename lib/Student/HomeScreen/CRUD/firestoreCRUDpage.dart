@@ -12,6 +12,18 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
   final db = FirebaseFirestore.instance;
   final _formKey = GlobalKey<FormState>();
 
+  Card buildItem(DocumentSnapshot doc) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [Text("Name : ${doc['Name']}")],
+        ),
+      ),
+    );
+  }
+
   TextFormField buildTextFormField() {
     return TextFormField(
       decoration: InputDecoration(
@@ -76,7 +88,15 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
           ),
           StreamBuilder<QuerySnapshot>(
             stream: db.collection("CRUD").snapshots(),
-            builder: null,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Column(
+                  children:
+                      snapshot.data.docs.map((doc) => buildItem(doc)).toList(),
+                );
+              } else
+                return SizedBox();
+            },
           )
         ],
       ),
