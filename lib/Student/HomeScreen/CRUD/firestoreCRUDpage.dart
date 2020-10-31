@@ -44,15 +44,51 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
         children: [
           Form(
             key: _formKey,
-            child: Column(
-              children: [
-                
-                buildTextFormField(),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  buildTextFormField(),
+                ],
+              ),
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              RaisedButton(
+                onPressed: createData,
+                child: Text(
+                  "Create",
+                  style: TextStyle(color: Colors.black),
+                ),
+                color: Colors.green,
+              ),
+              RaisedButton(
+                onPressed: id != null ? readData : null,
+                child: Text(
+                  "Read",
+                  style: TextStyle(color: Colors.black),
+                ),
+                color: Colors.blue,
+              ),
+            ],
           )
         ],
       ),
     );
   }
+
+  void createData() async {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      DocumentReference ref = await db.collection("CRUD").add({"Name": name});
+      setState(() {
+        id = ref.id;
+      });
+      print(ref.id);
+    }
+  }
+
+  void readData() async {}
 }
