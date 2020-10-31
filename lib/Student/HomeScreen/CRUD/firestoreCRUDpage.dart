@@ -8,7 +8,7 @@ class FirestoreCRUDPage extends StatefulWidget {
 }
 
 class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
-  String id, name;
+  String id, name, todo;
   final db = FirebaseFirestore.instance;
   final _formKey = GlobalKey<FormState>();
 
@@ -145,5 +145,18 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
   void readData() async {
     DocumentSnapshot snapshot = await db.collection("CRUD").doc(id).get();
     print(snapshot['Name']);
+  }
+
+  void updateData(DocumentSnapshot doc) async {
+    DocumentSnapshot snapshot =
+        await db.collection("CRUD").doc(doc.id).update({'Todo' : "Please do"});
+  }
+
+  void deleteData(DocumentSnapshot doc) async {
+    DocumentSnapshot snapshot =
+        await db.collection("CRUD").doc(doc.id).delete();
+    setState(() {
+      id = null;
+    });
   }
 }
