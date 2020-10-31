@@ -18,7 +18,35 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Text("Name : ${doc['Name']}")],
+          children: [
+            Text("Name : ${doc['Name']}"),
+            Text("Todo : ${doc['Todo']}"),
+            SizedBox(
+              height: 12,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FlatButton(
+                  onPressed: () => updateData(doc),
+                  child: Text(
+                    "Update todo",
+                    style: TextStyle(color: Colors.green),
+                  ),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                FlatButton(
+                  onPressed: () => deleteData(doc),
+                  child: Text(
+                    "Delete",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
