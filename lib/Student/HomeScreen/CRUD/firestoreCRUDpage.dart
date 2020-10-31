@@ -149,13 +149,15 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     print(snapshot['Name']);
   }
 
-  void updateData(DocumentSnapshot doc) async {
-    final DocumentSnapshot snapshot =
-        await db.collection("CRUD").doc(doc.id).update({"Todo": "Please"});
+  static Future<void> updateData(DocumentSnapshot doc) async {
+    // final await FirebaseFirestore.instance.collection("CRUD").doc(doc.id).update({"Todo": "Please"});
+    await FirebaseFirestore.instance
+        .collection("CRUD")
+        .doc(doc.id)
+        .update({"Todo": "Please"});
   }
 
-  void deleteData(DocumentSnapshot doc) async {
-    final DocumentSnapshot snapshot =
+  Future<void> deleteData(DocumentSnapshot doc) async {
         await db.collection("CRUD").doc(doc.id).delete();
     setState(() {
       id = null;
