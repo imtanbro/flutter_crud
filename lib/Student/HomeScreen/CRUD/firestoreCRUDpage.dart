@@ -10,6 +10,7 @@ class FirestoreCRUDPage extends StatefulWidget {
 
 class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
   String id, name, todo;
+  DateTime pickeddate;
   final db = FirebaseFirestore.instance;
   final _formKey = GlobalKey<FormState>();
 
@@ -29,7 +30,7 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FlatButton(
-                  onPressed: () => updateData(doc),
+                  onPressed: () => updateData(doc, DateTime.now()),
                   child: Text(
                     "Update todo",
                     style: TextStyle(color: Colors.green),
@@ -75,6 +76,14 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
       },
       onSaved: (newValue) => name = newValue,
     );
+  }
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    pickeddate = DateTime.now();
   }
 
   @override
@@ -137,7 +146,7 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       DocumentReference ref =
-          await db.collection("CRUD").add({"Name": name, "Todo": randomTodo()});
+          await db.collection("CRUD").add({"Name": name, "Todo": randomTodo(), "Date" : DateTime.now()});
       setState(() {
         id = ref.id;
       });
@@ -150,12 +159,12 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     print(snapshot['Name']);
   }
 
-  static Future<void> updateData(DocumentSnapshot doc) async {
+  static Future<void> updateData(DocumentSnapshot doc, DateTime pickeddate) async {
     // final await FirebaseFirestore.instance.collection("CRUD").doc(doc.id).update({"Todo": "Please"});
     await FirebaseFirestore.instance
         .collection("CRUD")
         .doc(doc.id)
-        .update({"Todo": "Please"});
+        .update({"Todo": randomTodo(), "Date": pickeddate});
   }
 
   Future<void> deleteData(DocumentSnapshot doc) async {
@@ -165,7 +174,7 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
     });
   }
 
-  String randomTodo() {
+  static String randomTodo() {
     final randomNumber = randomAlphaNumeric(1);
     String todo;
     switch (int.parse(randomNumber)) {
@@ -201,5 +210,21 @@ class _FirestoreCRUDPageState extends State<FirestoreCRUDPage> {
         break;
     }
     return todo;
+  }
+
+
+  _pickDate() async {
+    DateTime date = await showDatePicker(
+        context: context,
+        initialDate: pickeddate,
+        firstDate: DateTime(DateTime.now().year - 50),
+        lastDate: DateTime.now());
+
+    if (date != null) {
+      setState(() {
+        pickeddate = date;
+        print(pickeddate);
+      });
+    }
   }
 }

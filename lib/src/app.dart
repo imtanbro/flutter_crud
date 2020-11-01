@@ -17,7 +17,8 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: "Authentication",
       // home: HomePage(subject: Subject(),),
-      home: HomePage(),
+      // home: HomePage(),
+      home: EntryPage(),
       debugShowCheckedModeBanner: false,
     );
   }

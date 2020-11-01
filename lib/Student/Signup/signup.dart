@@ -34,6 +34,21 @@ class _RegisterState extends State<Register> {
     return regExp.hasMatch(em);
   }
 
+  // List<String> student = [
+  //     fname,
+  //      mname,
+  //      lname,
+  //      widget.email,
+  //      rollno,
+  //      widget.password,
+  //      pickeddate.toString(),
+  //      branch,
+  //      semister,
+  //      div,
+  //      aboutyou,
+  //      attendace.toString(),
+  // ];
+
   addStudentData() async {
     studentId = randomAlphaNumeric(10);
     Map<String, String> studentData = {
@@ -53,7 +68,7 @@ class _RegisterState extends State<Register> {
     db.addStudentsData(studentData, studentId);
     db.addStudent(studentData, studentId, branch, semister, div).then((value) =>
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage())));
+            context, MaterialPageRoute(builder: (context) => HomePage(branch: branch, div: div,sId: studentId, sem: semister))));
   }
 
   @override
