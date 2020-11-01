@@ -51,8 +51,17 @@ class _HomePageState extends State<HomePage> {
           ),
           GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Coffee()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Coffee()));
+              },
+              child: customButton(context, "Coffee", 10)),
+          SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Coffee()));
               },
               child: customButton(context, "Coffee", 10)),
         ]),
