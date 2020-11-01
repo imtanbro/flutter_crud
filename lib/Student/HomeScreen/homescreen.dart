@@ -45,6 +45,15 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => Profile()));
               },
               child: customButton(context, "Profile", 10)),
+          SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Profile()));
+              },
+              child: customButton(context, "Profile", 10)),
         ]),
       ),
     );
