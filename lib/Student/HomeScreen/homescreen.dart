@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Student/HomeScreen/CRUD/firestoreCRUDpage.dart';
+import 'package:flutter_crud/Student/HomeScreen/Coffee/main.dart';
 import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/multi_form.dart';
 import 'package:flutter_crud/Student/Profile/profile.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
@@ -51,9 +52,9 @@ class _HomePageState extends State<HomePage> {
           GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Profile()));
+                    MaterialPageRoute(builder: (context) => Coffee()));
               },
-              child: customButton(context, "Profile", 10)),
+              child: customButton(context, "Coffee", 10)),
         ]),
       ),
     );
