@@ -47,17 +47,17 @@ class _RegisterState extends State<Register> {
       "MiddleName": sd.mname,
       "LastName": sd.lname,
       "Email": widget.email,
-      "RollNo": rollno,
+      "RollNo": sd.rollno,
       "password": widget.password,
-      "Dataofbirth": pickeddate.toString(),
-      "Branch": branch,
-      "Semister": semister,
-      "Division": div,
-      "About You": aboutyou,
-      "Attendance": attendace.toString(),
+      "Dataofbirth": sd.pickeddate.toString(),
+      "Branch": sd.branch,
+      "Semister": sd.semister,
+      "Division": sd.div,
+      "About You": sd.aboutyou,
+      "Attendance": sd.attendace.toString(),
     };
-    db.addStudentsData(studentData, studentId);
-    db.addStudent(studentData, studentId, branch, semister, div).then((value) =>
+    db.addStudentsData(studentData, sd.studentId);
+    db.addStudent(studentData, sd.studentId, sd.branch, sd.semister, sd.div).then((value) =>
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
