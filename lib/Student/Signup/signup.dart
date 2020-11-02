@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/firestore_services.dart';
 import 'package:flutter_crud/Student/HomeScreen/homescreen.dart';
+import 'package:flutter_crud/Student/Signup/Studentdata.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
 import 'package:random_string/random_string.dart';
 
@@ -13,17 +14,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
-  String fname,
-      mname,
-      lname,
-      div,
-      semister,
-      branch,
-      aboutyou = "",
-      rollno,
-      studentId;
-  int attendace = 0;
-  DateTime pickeddate;
+  StudentData sd;
   DatabaseService db = new DatabaseService();
 
   // DatabaseService databaseService = new DatabaseService();
@@ -50,11 +41,11 @@ class _RegisterState extends State<Register> {
   // ];
 
   addStudentData() async {
-    studentId = randomAlphaNumeric(10);
+    sd.studentId = randomAlphaNumeric(10);
     Map<String, String> studentData = {
-      "FirstName": fname,
-      "MiddleName": mname,
-      "LastName": lname,
+      "FirstName": sd.fname,
+      "MiddleName": sd.mname,
+      "LastName": sd.lname,
       "Email": widget.email,
       "RollNo": rollno,
       "password": widget.password,
@@ -68,7 +59,10 @@ class _RegisterState extends State<Register> {
     db.addStudentsData(studentData, studentId);
     db.addStudent(studentData, studentId, branch, semister, div).then((value) =>
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage(branch: branch, div: div,sId: studentId, sem: semister))));
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage(
+                    branch: branch, div: div, sId: studentId, sem: semister))));
   }
 
   @override
@@ -188,7 +182,6 @@ class _RegisterState extends State<Register> {
               SizedBox(
                 height: size.height * 0.01,
               ),
-
               TextFormField(
                 validator: (val) {
                   return val.length <= 5
@@ -305,7 +298,7 @@ class _RegisterState extends State<Register> {
               ),
               TextFormField(
                 validator: (val) {
-                  return val =="A" || val == "B"
+                  return val == "A" || val == "B"
                       ? null
                       : "Division Should be A or B";
                 },
@@ -330,7 +323,6 @@ class _RegisterState extends State<Register> {
                     borderRadius: BorderRadius.circular(25.0),
                   ),
                 ),
-
                 onChanged: (val) {
                   div = val.toUpperCase();
                 },
