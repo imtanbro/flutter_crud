@@ -62,14 +62,14 @@ class _RegisterState extends State<Register> {
             context,
             MaterialPageRoute(
                 builder: (context) => HomePage(
-                    branch: branch, div: div, sId: studentId, sem: semister))));
+                    branch: sd.branch, div: sd.div, sId: sd.studentId, sem: sd.semister))));
   }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    pickeddate = DateTime.now();
+    sd.pickeddate = DateTime.now();
   }
 
   @override
@@ -112,7 +112,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 onChanged: (val) {
-                  fname = val;
+                  sd.fname = val;
                 },
               ),
               SizedBox(
@@ -144,7 +144,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 onChanged: (val) {
-                  mname = val;
+                  sd.mname = val;
                 },
               ),
               SizedBox(
@@ -176,7 +176,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 onChanged: (val) {
-                  lname = val;
+                  sd.lname = val;
                 },
               ),
               SizedBox(
@@ -211,7 +211,7 @@ class _RegisterState extends State<Register> {
                 ),
                 keyboardType: TextInputType.number,
                 onChanged: (val) {
-                  rollno = val;
+                  sd.rollno = val;
                 },
               ),
               SizedBox(
@@ -219,7 +219,7 @@ class _RegisterState extends State<Register> {
               ),
               ListTile(
                 title: Text(
-                  "Date of Birth : ${pickeddate.day}/${pickeddate.month}/${pickeddate.year}",
+                  "Date of Birth : ${sd.pickeddate.day}/${sd.pickeddate.month}/${sd.pickeddate.year}",
                   style: TextStyle(color: Colors.white),
                 ),
                 trailing: Icon(
@@ -252,14 +252,14 @@ class _RegisterState extends State<Register> {
                     ],
                     onChanged: (val) {
                       setState(() {});
-                      branch = val;
-                      print(branch);
+                      sd.branch = val;
+                      print(sd.branch);
                     },
                     hint: Text(
                       "Branch",
                       style: TextStyle(color: Colors.white),
                     ),
-                    value: branch,
+                    value: sd.branch,
                     focusColor: Colors.white,
                   ),
                   SizedBox(
@@ -281,8 +281,8 @@ class _RegisterState extends State<Register> {
                     ],
                     onChanged: (val) {
                       setState(() {
-                        semister = val;
-                        print(semister);
+                        sd.semister = val;
+                        print(sd.semister);
                       });
                     },
                     hint: Text(
