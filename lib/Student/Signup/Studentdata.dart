@@ -12,5 +12,5 @@ class StudentData {
   DateTime pickeddate;
 
 
-  StudentData({this.aboutyou,this.attendace,this.branch, this.div,this.fname,this.lname, this.mname,this.pickeddate,this.rollno})
+  StudentData({this.aboutyou,this.attendace,this.branch, this.div,this.fname,this.lname, this.mname,this.pickeddate,this.rollno, this.semister,this.studentId})
 }
