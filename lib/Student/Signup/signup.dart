@@ -77,7 +77,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Provider(
-      create: (_) => StudentData(aboutyou: sd.aboutyou, ),
+      create: (_) => StudentData(aboutyou: sd.aboutyou, attendace: sd.attendace,branch: sd.branch,div: sd.div,fname: sd.fname,lname: sd.lname,mname: sd.mname,pickeddate: sd.pickeddate,rollno: sd.rollno,semister: sd.semister,studentId: sd.studentId),
           child: Scaffold(
         appBar: NavbarCustom("Student Details"),
         body: Container(
