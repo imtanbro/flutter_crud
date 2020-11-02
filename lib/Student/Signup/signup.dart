@@ -58,12 +58,16 @@ class _RegisterState extends State<Register> {
       "Attendance": sd.attendace.toString(),
     };
     db.addStudentsData(studentData, sd.studentId);
-    db.addStudent(studentData, sd.studentId, sd.branch, sd.semister, sd.div).then((value) =>
-        Navigator.pushReplacement(
+    db
+        .addStudent(studentData, sd.studentId, sd.branch, sd.semister, sd.div)
+        .then((value) => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
                 builder: (context) => HomePage(
-                    branch: sd.branch, div: sd.div, sId: sd.studentId, sem: sd.semister))));
+                    branch: sd.branch,
+                    div: sd.div,
+                    sId: sd.studentId,
+                    sem: sd.semister))));
   }
 
   @override
@@ -77,8 +81,19 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Provider(
-      create: (_) => StudentData(aboutyou: sd.aboutyou, attendace: sd.attendace,branch: sd.branch,div: sd.div,fname: sd.fname,lname: sd.lname,mname: sd.mname,pickeddate: sd.pickeddate,rollno: sd.rollno,semister: sd.semister,studentId: sd.studentId),
-          child: Scaffold(
+      create: (_) => StudentData(
+          aboutyou: sd.aboutyou,
+          attendace: sd.attendace,
+          branch: sd.branch,
+          div: sd.div,
+          fname: sd.fname,
+          lname: sd.lname,
+          mname: sd.mname,
+          pickeddate: sd.pickeddate,
+          rollno: sd.rollno,
+          semister: sd.semister,
+          studentId: sd.studentId),
+      child: Scaffold(
         appBar: NavbarCustom("Student Details"),
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
