@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => SqlfliteCRUD()));
               },
-              child: customButton(context, "SqFlite CRUD", 10)),
+              child: customButton(context, "SqFlite and CRUD", 10)),
         ]),
       ),
     );
