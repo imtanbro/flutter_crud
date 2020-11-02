@@ -289,7 +289,7 @@ class _RegisterState extends State<Register> {
                       "Semester",
                       style: TextStyle(color: Colors.white),
                     ),
-                    value: semister,
+                    value: sd.semister,
                   ),
                 ],
               ),
@@ -324,7 +324,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
                 onChanged: (val) {
-                  div = val.toUpperCase();
+                  sd.div = val.toUpperCase();
                 },
               ),
               SizedBox(
@@ -352,14 +352,14 @@ class _RegisterState extends State<Register> {
   _pickDate() async {
     DateTime date = await showDatePicker(
         context: context,
-        initialDate: pickeddate,
+        initialDate: sd.pickeddate,
         firstDate: DateTime(DateTime.now().year - 50),
         lastDate: DateTime.now());
 
     if (date != null) {
       setState(() {
-        pickeddate = date;
-        print(pickeddate);
+        sd.pickeddate = date;
+        print(sd.pickeddate);
       });
     }
   }
