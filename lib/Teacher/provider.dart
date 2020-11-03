@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/Student/HomeScreen/Coffee/screens/home/home.dart';
+import 'package:flutter_crud/Teacher/Login/teacher_login.dart';
 import 'package:flutter_crud/Teacher/Register/auth.dart';
 import 'package:provider/provider.dart';
 
@@ -32,8 +34,10 @@ class AuthWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User>();
     if (firebaseUser != null) {
-      return Text("Signed in");
+      return Home();
     }
-    return Text("Nt signed in");
+    return TeacherLogin();
   }
 }
+
+
