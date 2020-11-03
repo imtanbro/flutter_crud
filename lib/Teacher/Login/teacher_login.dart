@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/Services/firestore_services.dart';
 import 'package:flutter_crud/Student/Signup/signup.dart';
+import 'package:flutter_crud/Teacher/Register/auth.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 class TeacherLogin extends StatefulWidget {
   @override
@@ -76,14 +78,17 @@ class _TeacherLoginState extends State<TeacherLogin> {
             ),
             GestureDetector(
                 onTap: () async {
-                  bool signinnavigator =
-                  await signIn(_email.text, _password.text);
-                  if (!signinnavigator) {
-                    print("Error");
-                  }
-                  else{
-                    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Register()));
-                  }
+                  // bool signinnavigator =
+                  // await signIn(_email.text, _password.text);
+                  // if (!signinnavigator) {
+                  //   print("Error");
+                  // }
+                  // else{
+                  //   // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Register()));
+                  // }
+
+                  context.read<AuthService>().signInteacher(
+                      email: _email.text, password: _password.text);
                 },
                 child: customButton(context, "Sign In", 100)),
             SizedBox(
@@ -92,7 +97,7 @@ class _TeacherLoginState extends State<TeacherLogin> {
             GestureDetector(
                 onTap: () async {
                   bool registernavigate =
-                  await register(_email.text, _password.text);
+                      await register(_email.text, _password.text);
                   if (registernavigate) {
                     // Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
                   }

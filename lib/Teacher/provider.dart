@@ -9,11 +9,12 @@ class AuthForTeacher extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<AuthService>(create: (_) => AuthService(FirebaseAuth.instance),
-        
+        Provider<AuthService>(
+          create: (_) => AuthService(FirebaseAuth.instance),
         ),
-
-        StreamProvider(create: (context) => context.read<AuthService>().authStateChanges,)
+        StreamProvider(
+          create: (context) => context.read<AuthService>().authStateChanges,
+        )
       ],
       child: MaterialApp(
         title: "Teacher Auth withProvider",
@@ -29,7 +30,10 @@ class AuthWrapper extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    
-    return Container();
+    final firebaseUser = context.watch<User>();
+    if (firebaseUser != null) {
+      return Text("Signed in");
+    }
+    return Text("Nt signed in");
   }
 }
