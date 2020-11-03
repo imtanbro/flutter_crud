@@ -23,4 +23,7 @@ class StudentData {
       this.rollno,
       this.semister,
       this.studentId});
+
+
+      
 }
