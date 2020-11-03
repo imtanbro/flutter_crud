@@ -4,7 +4,9 @@ import 'package:flutter_crud/Student/HomeScreen/Coffee/main.dart';
 import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/multi_form.dart';
 import 'package:flutter_crud/Student/HomeScreen/Sqflite/SqfliteCRUD.dart';
 import 'package:flutter_crud/Student/Profile/profile.dart';
+import 'package:flutter_crud/Teacher/Register/auth.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   String branch, div, sem, sId;
@@ -17,7 +19,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NavbarCustom("Home Page"),
+      appBar: AppBar(
+        title: Text("Home Page"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: GestureDetector(
+                onTap: () {
+                  context.read<AuthService>().signOut();
+                },
+                child: Icon(Icons.logout)),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(28.0),
         child: Column(children: [
@@ -61,8 +75,8 @@ class _HomePageState extends State<HomePage> {
           ),
           GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => SqlfliteCRUD()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SqlfliteCRUD()));
               },
               child: customButton(context, "SqFlite CRUD", 10)),
         ]),
