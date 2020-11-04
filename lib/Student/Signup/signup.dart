@@ -81,11 +81,6 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return ChangeNotifierProvider(
-      create: (context) => StudentData(
-          
-          
-          
-          ),
       builder: (context, child) {
         Scaffold(
           appBar: NavbarCustom("Student Details"),
