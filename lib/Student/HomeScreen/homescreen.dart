@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: customButton(context, "CRUD", 10)),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           GestureDetector(
               onTap: () {
