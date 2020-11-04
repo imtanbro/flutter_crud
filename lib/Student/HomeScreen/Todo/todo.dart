@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class HomePageTodo extends StatefulWidget {
@@ -13,6 +14,8 @@ class _HomePageTodoState extends State<HomePageTodo> {
   }
 
   List<CheckListWidget> _tasks = [];
+
+  FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   removeTask(CheckListWidget task) {
     setState(() {
@@ -93,16 +96,55 @@ class _HomePageTodoState extends State<HomePageTodo> {
           );
         },
       ),
-      body: ListView.separated(
-        itemCount: _tasks.length,
-        itemBuilder: (context, index){
-          return _tasks[index];
+      // body: ListView.separated(
+      //   itemCount: _tasks.length,
+      //   itemBuilder: (context, index){
+      //     return _tasks[index];
+      //   },
+      //   separatorBuilder: (context, index) {
+      //     return Divider(
+      //       height: 2.0,
+      //     );
+      //   },
+      // ),
+
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _firebaseFirestore.collection("Task").snapshots(),
+        builder: (context, snapshot){
+          if(!snapshot.hasData){
+            return Center(
+              child: Container(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+          final taskListFromFirebase = snapshot.data.docs;
+          List<CheckListWidget> dataList = [];
+          for(var tasksData in taskListFromFirebase){
+            var taskDetails = tasksData.data();
+            print(taskDetails);
+            dataList.add(
+              CheckListWidget(
+                  title: taskDetails['title'],
+                  onLongPress: (CheckListWidget task){
+                    removeTask(task);
+                  }
+              ),
+            );
+          }
+          return ListView.separated(
+                itemCount: _tasks.length,
+                itemBuilder: (context, index){
+                  return _tasks[index];
+                },
+                separatorBuilder: (context, index) {
+                  return Divider(
+                    height: 2.0,
+                  );
+                },
+              );
         },
-        separatorBuilder: (context, index) {
-          return Divider(
-            height: 2.0,
-          );
-        },
+
       ),
 
     );
