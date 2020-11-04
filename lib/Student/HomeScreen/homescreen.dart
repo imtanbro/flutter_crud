@@ -3,6 +3,7 @@ import 'package:flutter_crud/Student/HomeScreen/CRUD/firestoreCRUDpage.dart';
 import 'package:flutter_crud/Student/HomeScreen/Coffee/main.dart';
 import 'package:flutter_crud/Student/HomeScreen/Dynamic%20Form/multi_form.dart';
 import 'package:flutter_crud/Student/HomeScreen/Sqflite/SqfliteCRUD.dart';
+import 'package:flutter_crud/Student/HomeScreen/Todo/todo.dart';
 import 'package:flutter_crud/Student/Profile/profile.dart';
 import 'package:flutter_crud/Teacher/Register/auth.dart';
 import 'package:flutter_crud/widgets/widgets.dart';
@@ -79,6 +80,16 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => SqlfliteCRUD()));
               },
               child: customButton(context, "SqFlite CRUD", 10)),
+
+          SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePageTodo()));
+              },
+              child: customButton(context, "Todo", 10)),
         ]),
       ),
     );
