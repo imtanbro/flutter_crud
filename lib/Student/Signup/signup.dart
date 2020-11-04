@@ -85,12 +85,7 @@ class _RegisterState extends State<Register> {
           
           
           
-          
-          
-          
-          
-          semister: sd.semister,
-          studentId: sd.studentId),
+          ),
       builder: (context, child) {
         Scaffold(
           appBar: NavbarCustom("Student Details"),
