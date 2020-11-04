@@ -8,7 +8,7 @@ class StudentData {
       aboutyou = "",
       rollno,
       studentId;
-  int attendace = 0;
+  int attendace = 7;
   DateTime pickeddate;
 
   StudentData(
