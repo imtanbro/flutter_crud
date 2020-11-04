@@ -83,7 +83,7 @@ class _RegisterState extends State<Register> {
     return ChangeNotifierProvider(
       create: (context) => StudentData(
           
-          attendace: sd.attendace,
+          
           branch: sd.branch,
           div: sd.div,
           fname: sd.fname,
