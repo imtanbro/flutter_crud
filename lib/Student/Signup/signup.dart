@@ -86,8 +86,8 @@ class _RegisterState extends State<Register> {
           
           
           
-          fname: sd.fname,
-          lname: sd.lname,
+          
+          
           mname: sd.mname,
           pickeddate: sd.pickeddate,
           rollno: sd.rollno,
