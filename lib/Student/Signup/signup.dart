@@ -88,9 +88,7 @@ class _RegisterState extends State<Register> {
           
           
           
-          mname: sd.mname,
-          pickeddate: sd.pickeddate,
-          rollno: sd.rollno,
+          
           semister: sd.semister,
           studentId: sd.studentId),
       builder: (context, child) {
