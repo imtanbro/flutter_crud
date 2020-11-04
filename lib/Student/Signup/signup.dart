@@ -84,7 +84,7 @@ class _RegisterState extends State<Register> {
       create: (context) => StudentData(
           
           
-          branch: sd.branch,
+          
           div: sd.div,
           fname: sd.fname,
           lname: sd.lname,
