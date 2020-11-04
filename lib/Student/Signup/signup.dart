@@ -82,7 +82,7 @@ class _RegisterState extends State<Register> {
     Size size = MediaQuery.of(context).size;
     return ChangeNotifierProvider(
       create: (context) => StudentData(
-          aboutyou: sd.aboutyou,
+          
           attendace: sd.attendace,
           branch: sd.branch,
           div: sd.div,

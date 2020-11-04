@@ -13,7 +13,7 @@ class StudentData extends ChangeNotifier{
   int attendace = 7;
   DateTime pickeddate;
 
-  set 
+
 
       
 }
