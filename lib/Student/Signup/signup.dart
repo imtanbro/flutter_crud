@@ -85,7 +85,7 @@ class _RegisterState extends State<Register> {
           
           
           
-          div: sd.div,
+          
           fname: sd.fname,
           lname: sd.lname,
           mname: sd.mname,
