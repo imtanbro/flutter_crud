@@ -9,14 +9,25 @@ import 'package:random_string/random_string.dart';
 class Register extends StatefulWidget {
   String email, password;
   Register(this.email, this.password);
+  
   @override
   _RegisterState createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
-  StudentData sd;
+  DateTime pickeddate;
   DatabaseService db = new DatabaseService();
+   String fname ,
+      mname ,
+      lname,
+      div ,
+      semister,
+      branch ,
+      aboutyou,
+      rollno ,
+      studentId ;
+  int attendace = 0;
 
   // DatabaseService databaseService = new DatabaseService();
   bool isEmail(String em) {
@@ -42,47 +53,45 @@ class _RegisterState extends State<Register> {
   // ];
 
   addStudentData() async {
-    sd.studentId = randomAlphaNumeric(10);
+    studentId = randomAlphaNumeric(10);
     Map<String, String> studentData = {
-      "FirstName": sd.fname,
-      "MiddleName": sd.mname,
-      "LastName": sd.lname,
+      "FirstName":fname,
+      "MiddleName": mname,
+      "LastName": lname,
       "Email": widget.email,
-      "RollNo": sd.rollno,
+      "RollNo": rollno,
       "password": widget.password,
-      "Dataofbirth": sd.pickeddate.toString(),
-      "Branch": sd.branch,
-      "Semister": sd.semister,
-      "Division": sd.div,
-      "About You": sd.aboutyou,
-      "Attendance": sd.attendace.toString(),
+      "Dataofbirth": pickeddate.toString(),
+      "Branch": branch,
+      "Semister": semister,
+      "Division": div,
+      "About You": aboutyou,
+      "Attendance": attendace.toString(),
     };
-    db.addStudentsData(studentData, sd.studentId);
+    db.addStudentsData(studentData, studentId);
     db
-        .addStudent(studentData, sd.studentId, sd.branch, sd.semister, sd.div)
+        .addStudent(studentData, studentId, branch, semister, div)
         .then((value) => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
                 builder: (context) => HomePage(
-                    branch: sd.branch,
-                    div: sd.div,
-                    sId: sd.studentId,
-                    sem: sd.semister))));
+                    branch: branch,
+                    div: div,
+                    sId: studentId,
+                    sem: semister))));
   }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    sd.pickeddate = DateTime.now();
+    pickeddate = DateTime.now();
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return ChangeNotifierProvider(
-      builder: (context, child) {
-        Scaffold(
+    return Scaffold(
           appBar: NavbarCustom("Student Details"),
           body: Container(
             padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
@@ -119,7 +128,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     onChanged: (val) {
-                      sd.fname = val;
+                      fname = val;
                     },
                   ),
                   SizedBox(
@@ -151,7 +160,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     onChanged: (val) {
-                      sd.mname = val;
+                       mname = val;
                     },
                   ),
                   SizedBox(
@@ -183,7 +192,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     onChanged: (val) {
-                      sd.lname = val;
+                       lname = val;
                     },
                   ),
                   SizedBox(
@@ -218,7 +227,7 @@ class _RegisterState extends State<Register> {
                     ),
                     keyboardType: TextInputType.number,
                     onChanged: (val) {
-                      sd.rollno = val;
+                       rollno = val;
                     },
                   ),
                   SizedBox(
@@ -226,7 +235,7 @@ class _RegisterState extends State<Register> {
                   ),
                   ListTile(
                     title: Text(
-                      "Date of Birth : ${sd.pickeddate.day}/${sd.pickeddate.month}/${sd.pickeddate.year}",
+                      "Date of Birth : ${pickeddate.day}/${pickeddate.month}/${pickeddate.year}",
                       style: TextStyle(color: Colors.white),
                     ),
                     trailing: Icon(
@@ -245,28 +254,29 @@ class _RegisterState extends State<Register> {
                         items: [
                           DropdownMenuItem(
                               value: "Computer Engineering",
-                              child: Text("Computer Engineering")),
+                              child: Text("Computer Engineering" )),
                           DropdownMenuItem(value: "E&TC", child: Text("E&TC")),
                           DropdownMenuItem(
                               value: "Mechanical Engineering",
-                              child: Text("Mechanical Engineering")),
+                              child: Text("Mechanical Engineering" )),
                           DropdownMenuItem(
                               value: "Civil Engineering",
-                              child: Text("Civil Engineering")),
+                              child: Text("Civil Engineering" )),
                           DropdownMenuItem(
                               value: "Chemical Engineering",
-                              child: Text("Chemical Engineering")),
+                              child: Text("Chemical Engineering" )),
                         ],
                         onChanged: (val) {
                           setState(() {});
-                          sd.branch = val;
-                          print(sd.branch);
+                           branch = val;
+                          print( branch);
                         },
                         hint: Text(
                           "Branch",
                           style: TextStyle(color: Colors.white),
                         ),
-                        value: sd.branch,
+                        value:  branch,
+                        dropdownColor: Colors.black,
                         focusColor: Colors.white,
                       ),
                       SizedBox(
@@ -296,15 +306,16 @@ class _RegisterState extends State<Register> {
                         ],
                         onChanged: (val) {
                           setState(() {
-                            sd.semister = val;
-                            print(sd.semister);
+                             semister = val;
+                            print( semister);
                           });
                         },
+                        dropdownColor: Colors.black,
                         hint: Text(
                           "Semester",
                           style: TextStyle(color: Colors.white),
                         ),
-                        value: sd.semister,
+                        value:  semister,
                       ),
                     ],
                   ),
@@ -339,7 +350,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     onChanged: (val) {
-                      sd.div = val.toUpperCase();
+                       div = val.toUpperCase();
                     },
                   ),
                   SizedBox(
@@ -362,21 +373,19 @@ class _RegisterState extends State<Register> {
             },
           ),
         );
-      },
-    );
   }
 
   _pickDate() async {
     DateTime date = await showDatePicker(
         context: context,
-        initialDate: sd.pickeddate,
+        initialDate: pickeddate,
         firstDate: DateTime(DateTime.now().year - 50),
         lastDate: DateTime.now());
 
     if (date != null) {
       setState(() {
-        sd.pickeddate = date;
-        print(sd.pickeddate);
+        pickeddate = date;
+        print(pickeddate);
       });
     }
   }

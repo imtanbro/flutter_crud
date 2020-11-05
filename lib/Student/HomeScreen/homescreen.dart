@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
           GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Profile()));
+                    MaterialPageRoute(builder: (context) => Profile(branch: widget.branch,div: widget.div,semister: widget.sem,studentId: widget.sId,)));
               },
               child: customButton(context, "Profile", 10)),
           SizedBox(

@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 
 class StudentData extends ChangeNotifier {
-  String fname,
-      mname,
-      lname,
-      div,
-      semister,
-      branch,
+  String fname = "",
+      mname = "",
+      lname = "",
+      div = "",
+      semister = "",
+      branch = "",
       aboutyou = "",
-      rollno,
-      studentId;
-  int attendace = 7;
-  DateTime pickeddate;
+      rollno = "",
+      studentId = "";
+  int attendace = 0;
+  
 
   StudentData(
       {this.aboutyou,
@@ -21,7 +21,6 @@ class StudentData extends ChangeNotifier {
       this.fname,
       this.lname,
       this.mname,
-      this.pickeddate,
       this.rollno,
       this.semister,
       this.studentId});
