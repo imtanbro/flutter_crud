@@ -36,21 +36,40 @@ class _ProfileState extends State<Profile> {
                         .doc(widget.studentId)
                         .snapshots(),
                     builder: (context, snapshot) {
-                      return snapshot.data == null
-                          ? Container()
-                          : ListView.builder(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 18, vertical: 10),
-                              shrinkWrap: true,
-                              physics: ClampingScrollPhysics(),
-                              itemCount: snapshot.data.documents.length,
-                              itemBuilder: (context, index) {
-                                
-                              },
-                            );
+                      if (!snapshot.hasData) {
+                        Container(
+                          child: Text("No Data"),
+                        );
+                      }
+
+                      ListView.builder(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        itemCount: snapshot.data.documents.length,
+                        itemBuilder: (context, index) {
+                          DocumentSnapshot course =
+                              snapshot.data.documents[index];
+                          return DisplayUserData(
+                            name: course['FirstName'],
+                          );
+                        },
+                      );
                     },
                   )
           ],
         ));
+  }
+}
+
+class DisplayUserData extends StatelessWidget {
+  String name;
+  DisplayUserData({this.name});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text(name),
+    );
   }
 }
